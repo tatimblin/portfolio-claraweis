@@ -4,7 +4,7 @@
         <div class="slider_wrap content-block">
             <div class="main-slider slider">
                 
-                    <div class="main-slider-cell slider-cell" v-for="post in posts" :key="post.date">
+                    <div class="nullmain-slider-cell nullslider-cell" v-for="post in posts" :key="post.date">
                         <nuxt-link :to="post._path">
                             {{ post.title }}
                         </nuxt-link>
@@ -13,8 +13,10 @@
             </div>
             <div class="second-slider slider">
                 
-                    <div class="second-slider-cell slider-cell" v-for="post in posts" :key="post.date">
-                        next
+                    <div class="nullsecond-slider-cell nullslider-cell" v-for="post in posts" :key="post.date">
+                        <nuxt-link :to="post._path">
+                            {{ post.title }}
+                        </nuxt-link>
                     </div>
                 
             </div>
