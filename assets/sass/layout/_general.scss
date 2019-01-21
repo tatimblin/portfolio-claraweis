@@ -11,14 +11,6 @@
 }
 
 
-.content-block {
-    padding: 0 $spacing;
-}
-
-// Fade Homepage
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
-  }
-.fade-enter, .fade-leave-active {
-    opacity: 0
+.content {
+    padding: 2rem 0;
 }

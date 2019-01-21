@@ -1,22 +1,33 @@
 <template>
     <div class="home container large-width">
-        <div class="content-block">
+        <div class="content">
             <h2>Home</h2>
-            <project-slider></project-slider>
+            <ul>
+                <li v-for="post in posts" :key="post.date">
+                    <nuxt-link :to="post._path">
+                        {{ post.title }}
+                    </nuxt-link>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue';
-import ProjectSlider from '~/components/ProjectSlider.vue';
 
 export default {
   layout: 'default',
   transition: 'fade',
   components: {
-    AppLogo,
-    ProjectSlider
+    AppLogo
+  },
+  data() {
+    return {};
   }
 };
 </script>
+
+<style lang="scss">
+
+</style>
