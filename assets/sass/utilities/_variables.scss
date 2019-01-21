@@ -89,7 +89,6 @@ $line-height-xlg: 1.95;
 
 // Modularscale settings
 $baseline: 24px;
-$modular-scale-ratio: $minor-third;
 $modular-scale-base: 16px;
 
 
@@ -197,3 +196,6 @@ $z-layers: (
     overlay: 4000,
     tippy-top: 9000
 );
+
+
+$ease: cubic-bezier(0.785, 0.135, 0.15, 0.86);
