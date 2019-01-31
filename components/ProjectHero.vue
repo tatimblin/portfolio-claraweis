@@ -2,7 +2,9 @@
   <section class="hero" :class="$route.name">
     <div class="hero__container">
       <div class="hero__container-title">
-        <h1>{{ project.title }}</h1>
+        <nuxt-link :to="project._path">
+          <h1>{{ project.title }}</h1>
+        </nuxt-link>
       </div>
       <div class="hero__container-bg">
         <nuxt-link :to="project._path">
@@ -14,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   data () {
@@ -29,14 +31,24 @@ export default {
       return dateA - dateB;
     });
 
-    return { projects };
+    return { 
+      projects,
+      projectLength: 0,
+    };
   },
   computed: {
     ...mapGetters(['current']),
     project: function () {
-      return this.projects[0];
+      return this.projects[this.current];
     },
   },
+  methods: {
+    ...mapMutations(['updateLength']),
+  },
+  mounted () {
+    // Save the post length to the store
+    this.updateLength(this.projects.length - 1)
+  }
 }
 </script>
 
@@ -52,24 +64,17 @@ export default {
 	
 	&__container {
 		position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 		width: 100%; height: 100vh;
 		padding: 90px;
 		box-sizing: border-box;
 		
 		&-title {
-			position: absolute;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%; height: 100%;
-			top: 0; left: 0;
-			text-align: center;
-      z-index: 10;
-      pointer-events: none;
-			
-			h1 {
-				font-size: 5em;
-			}
+      position: absolute;
+      z-index: 10000;
 		}
 		&-bg {
 			position: relative;

@@ -1,8 +1,6 @@
 <template>
   <div class="post container large-width">
       <div class="content">
-        <img :src="thumbnail">
-        <h1>{{ title }}</h1>
         <vue-markdown>{{ body }}</vue-markdown>
       </div>
   </div>

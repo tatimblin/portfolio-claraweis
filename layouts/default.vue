@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <!-- <app-header></app-header> -->
+    <app-header></app-header>
     <project-hero></project-hero>
     <nuxt/>
     <app-footer></app-footer>
